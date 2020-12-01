@@ -7,7 +7,7 @@ on:
 jobs:
     name: Lint and Test
     runs-on: ubuntu-latest
-      steps:
+    steps:
       - name: Lint
         uses: actions/checkout@v1
         with:
