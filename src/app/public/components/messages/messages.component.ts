@@ -35,13 +35,13 @@ export class MessagesComponent implements OnInit {
   }
 
   getSentimant(message) {
-    return message ? message.split("sentiment: ")[1] ?? 'other' : 'other';
+    return message ? message.split('sentiment: ')[1] ?? 'other' : 'other';
   }
 
   getMessage(message) {
    return  message.substring(
-      message.lastIndexOf("message:"), 
-      message.lastIndexOf(", sentiment:")
+      message.lastIndexOf('message:'),
+      message.lastIndexOf(', sentiment:')
   ).split(': ')[1];
   }
 }

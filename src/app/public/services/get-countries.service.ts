@@ -9,26 +9,26 @@ export class GetCountriesService {
   constructor() { }
 
   getContries(data: string) {
-   let location = {country: '', city: ''}
+   const location = {country: '', city: ''};
    Object.keys(contries).forEach((c) => {
     data = data.toLowerCase();
-    let countryLower = new RegExp("\\b" + c.toLowerCase() + "\\b").test(data);
+    const countryLower = new RegExp('\\b' + c.toLowerCase() + '\\b').test(data);
     if ( countryLower ) {
       location.country = c;
       contries[c].forEach((city) => {
-        const cityLower = new RegExp("\\b" + city.toLowerCase() + "\\b").test(data);
+        const cityLower = new RegExp('\\b' + city.toLowerCase() + '\\b').test(data);
         if ( cityLower ) {
           location.city = city;
         }
-      })
+      });
     } else {
       contries[c].forEach((city) => {
-        const cityLower = new RegExp("\\b" + city.toLowerCase() + "\\b").test(data);
+        const cityLower = new RegExp('\\b' + city.toLowerCase() + '\\b').test(data);
         if ( cityLower ) {
           location.city = city;
           location.country = location.country === '' ? c : location.country;
         }
-      })
+      });
     }
    });
    return location;
