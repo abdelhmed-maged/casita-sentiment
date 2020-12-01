@@ -47,7 +47,7 @@ export class ViewMessageComponent implements OnInit {
         geocoder.geocode({
             address
         }, (results, status) => {
-            if (status == google.maps.GeocoderStatus.OK) {
+            if (status === google.maps.GeocoderStatus.OK) {
                 observer.next(results[0].geometry.location);
                 observer.complete();
             } else {

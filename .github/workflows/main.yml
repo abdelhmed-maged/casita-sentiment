@@ -1,4 +1,4 @@
-name: Build and Deploy to Firebase
+name: CI/CD 
 
 on:
   push:
@@ -16,6 +16,10 @@ jobs:
         uses: actions/setup-node@master
       - name: Install Dependencies
         run: npm install
+      - name: Lint
+        run: ng lint
+      - name: Test
+        run: ng test
       - name: Build
         run: npm run build
       - name: Deploy
@@ -24,3 +28,5 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+  
