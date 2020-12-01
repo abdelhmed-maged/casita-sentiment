@@ -10,15 +10,13 @@ jobs:
     name: Lint and Test
     runs-on: ubuntu-latest
     steps:
+      - name: Initialize Node
+        uses: actions/setup-node@v1
+      - name: Install Dependencies
+        run: npm install
       - name: Lint
-        uses: actions/checkout@v1
-        with:
-          node-version: '12.x'
         run: npm install && ng lint
       - name: Test
-        uses: actions/checkout@v1
-        with:
-          node-version: '12.x'
         run: npm install && ng test
 
 
