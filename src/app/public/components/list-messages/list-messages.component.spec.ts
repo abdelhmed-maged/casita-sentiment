@@ -13,7 +13,8 @@ describe('ListMessagesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ListMessagesComponent ],
-      imports: [BrowserAnimationsModule, 
+      imports: [
+        BrowserAnimationsModule,
         FormsModule,
         MatPaginatorModule,
         MatTableModule,
