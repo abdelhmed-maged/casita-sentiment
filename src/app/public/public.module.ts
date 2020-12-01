@@ -14,7 +14,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 @NgModule({
   declarations: [
      MessagesComponent,
-     ListMessagesComponent, 
+     ListMessagesComponent,
      ViewMessageComponent],
   imports: [
     CommonModule,

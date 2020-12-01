@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { GetCountriesService } from '../../services/get-countries.service';
-import {Observable} from 'rxjs'
+import {Observable} from 'rxjs';
 import { Input, ViewChild } from '@angular/core';
 import {MapInfoWindow, MapMarker} from '@angular/google-maps';
 
@@ -20,9 +20,9 @@ export class ViewMessageComponent implements OnInit {
 
   markerPositions = [];
   markerOptions: google.maps.MarkerOptions = {draggable: false};
-  message
+  message;
   constructor(private getCountries: GetCountriesService, private cdr: ChangeDetectorRef) {
-    
+
    }
 
   ngOnInit(): void {
@@ -36,16 +36,16 @@ export class ViewMessageComponent implements OnInit {
         this.markerPositions = this.markerPositions.concat({lat: res.lat(), lng: res.lng(), message: m.message});
         }, () => {
           this.markerPositions = this.markerPositions.concat({lat: 2, lng: 4, message: m.message});
-        })
-      }); 
+        });
+      });
     });
   }
 
   getLocation(address: string): Observable<any> {
-    let geocoder = new google.maps.Geocoder();
+    const geocoder = new google.maps.Geocoder();
     return Observable.create(observer => {
         geocoder.geocode({
-            'address': address
+            address
         }, (results, status) => {
             if (status == google.maps.GeocoderStatus.OK) {
                 observer.next(results[0].geometry.location);

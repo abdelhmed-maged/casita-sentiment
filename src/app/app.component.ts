@@ -7,7 +7,7 @@ import { Router, RouterEvent, NavigationStart, NavigationEnd, NavigationError, N
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  loading: boolean = true;
+  loading = true;
   title = 'casita';
 
   constructor(private router: Router) {
