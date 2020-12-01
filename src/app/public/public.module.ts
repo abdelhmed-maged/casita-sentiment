@@ -8,7 +8,7 @@ import { PublicRoutingModule } from './public-routing.module';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ListMessagesComponent } from './components/list-messages/list-messages.component';
 import { ViewMessageComponent } from './components/view-message/view-message.component';
-import { GetCountriesService }  from './services/get-countries.service';
+import { GetCountriesService } from './services/get-countries.service';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({

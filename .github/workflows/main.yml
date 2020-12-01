@@ -1,3 +1,25 @@
+name: Lint and Test
+on:
+  push:
+    branches:
+      - master
+      - dev
+jobs:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+      steps:
+      - name: Lint
+        uses: actions/checkout@v1
+        with:
+          node-version: '12.x'
+        run: npm install && ng lint
+      - name: Test
+        uses: actions/checkout@v1
+        with:
+          node-version: '12.x'
+        run: npm install && ng test
+
+
 name: Build and Deploy to Firebase
 
 on:
@@ -24,3 +46,5 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+  

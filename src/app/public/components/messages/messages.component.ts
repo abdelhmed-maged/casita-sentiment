@@ -15,13 +15,14 @@ export class MessagesComponent implements OnInit {
   loaded = false;
 
   ngOnInit(): void {
-    this.messages = this.route.snapshot.data.messages.feed.entry;
+    this.messages = this.route.snapshot.data.messages?.feed?.entry;
     this.parsedMessage = this.validateMessages(this.messages);
     this.loaded = this.parsedMessage.length > 1;
   }
 
-  validateMessages(data) {
+  validateMessages(data: Array<any>) {
     let messages: Array<any> = [];
+    data = data ?? [];
     data.map((m) => {
       const content = m.content.$t.split(',');
       messages = messages.concat({
