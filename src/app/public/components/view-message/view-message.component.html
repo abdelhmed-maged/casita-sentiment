@@ -1,0 +1,16 @@
+<div class="map-container" *ngIf="mapReady">
+    <google-map class="map-container"
+                [options]="options"
+                height="100vh"
+                [center]="center"
+                width="100vw">
+                <map-marker 
+                #marker="mapMarker"
+                *ngFor="let markerPosition of markerPositions; index as i"
+                [position]="{lat: markerPosition.lat, lng: markerPosition.lng}"
+                [options]="markerOptions"
+                (mapClick)="openInfoWindow(marker, markerPosition.message)"></map-marker>
+                <map-info-window>{{message}}</map-info-window>
+            </google-map>
+
+</div>
