@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 @Injectable({
