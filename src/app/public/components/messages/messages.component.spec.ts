@@ -1,14 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { MessagesComponent } from './messages.component';
-
+import { GetCountriesService } from '../../services/get-countries.service';
 describe('MessagesComponent', () => {
   let component: MessagesComponent;
   let fixture: ComponentFixture<MessagesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MessagesComponent ]
+      declarations: [ MessagesComponent ],
+      imports: [RouterTestingModule],
+      providers: [GetCountriesService]
     })
     .compileComponents();
   });
